@@ -20,18 +20,21 @@ router.put("/api/:id", function(req, res){
       return res.status(404).end();
     } else {
       return res.status(200).end();
-    }
+    };
 
   });
 
 });
 
 router.post("/api/burgers", function(req, res){
+  // console.log('req: ', req);
+  console.log('req.body: ', req.body);
+
   burger.create(["burger_name"], [req.body.burger_name], function(result){
     console.log(result);
     res.json(result);
   })
-})
+});
 
 
 module.exports = router;

@@ -35,8 +35,12 @@ const orm = {
     });
   },
   insertOne: function(table, cols, vals, cb){
-    const query = `INSERT INTO ${table} (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)})`
-    connection.query(query, function(err, res){
+    console.log('cols: ', cols.toString());
+    const marks = printQuestionMarks(vals.length);
+    console.log('marks: ', marks);
+    
+    const query = `INSERT INTO ${table} (${cols.toString()}) VALUES (${marks})`
+    connection.query(query, [vals], function(err, res){
       if (err) throw err;
 
       cb(res);

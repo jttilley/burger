@@ -1,35 +1,9 @@
-// $(function() {
-//   $(".change-sleep").on("click", function(event) {
-//     var id = $(this).data("id");
-//     console.log('$(this).data("id"): ', $(this).data("id"));
-//     console.log('$(this): ', $(this));
-//     console.log('id: ', id);
-//     var newSleep = $(this).data("newsleep");
-
-//     var newSleepState = {
-//       sleepy: newSleep
-//     };
-
-//     // Send the PUT request.
-//     $.ajax("/api/cats/" + id, {
-//       type: "PUT",
-//       data: newSleepState
-//     }).then(
-//       function() {
-//         console.log("changed sleep to", newSleep);
-//         // Reload the page to get the updated list
-//         // location.reload();
-//       }
-//     );
-//   });
-// })
-
 $(function(){
   $(".change-devour").on("click", function(e){
     console.log("change clicked");
     // console.log('e: ', e);
     // console.log('$(this): ', $(this));
-    console.log('$(this).data("id"): ', $(this).data("id"));
+    // console.log('$(this).data("id"): ', $(this).data("id"));
     var id = $(this).data("id");    
     
 
@@ -50,8 +24,9 @@ $(function(){
     });
   });
 
-  $(".add").on("submit", function(e){
+  $(".add").on("click", function(e){
     e.preventDefault();
+    
     
     console.log("submit pressed");
     console.log('e: ', e);
@@ -60,13 +35,15 @@ $(function(){
       burger_name: $("#name").val().trim(),
     };
     
+    console.log('newBurger: ', newBurger);
+    
     $.ajax("/api/burgers", {
       type: "POST",
       data: newBurger
     }).then(function(){
       console.log("Added " + newBurger + " to be devoured.")
 
-      // location.reload();
+      location.reload();
     });
   });
 })

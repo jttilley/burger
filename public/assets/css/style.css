@@ -1,5 +1,35 @@
 .container {
   background-image: url("https://www.pinclipart.com/picdir/big/137-1375953_hamburger-svg-fast-food-svg-freeuse-stock-burger.png");
-  background-size: 25%;
-  
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: auto;
+  height: 500px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  justify-items: center;
+  align-content: space-between;
+  flex-direction: row;
+}
+
+.col-md-5 {
+  margin-left: 5%;
+  background-color: antiquewhite;
+  padding: 20px;
+}
+
+.create-form {
+  text-align: center;
+  margin: 10%;
+}
+
+#label {
+  background-color: antiquewhite;
+  font-weight: bold;
 }
