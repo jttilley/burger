@@ -2,17 +2,36 @@ const express = require("express");
 
 const router = express.Router();
 
-const burger = require("burger.js");
+const burger = require("../models/burger.js");
 
-router.get("/api/all", function(req, res){
+router.get("/", function(req, res){
+  burger.all(function(data){
+    console.log(data);
+    res.render("index",{burgers: data});
+  });
+});
+
+router.put("/api/:id", function(req, res){
+  const condition = "id = " + req.params.id;
+
+  burger.update({ devoured: req.body.devoured }, condition, function(result){
+    console.log(result);
+    if (result.changedRows == 0){
+      return res.status(404).end();
+    } else {
+      return res.status(200).end();
+    }
+
+  });
 
 });
 
-router.update("/api/:burger", function(req, res){
-
-});
-
-router.post()
+router.post("/api/burgers", function(req, res){
+  burger.create(["burger_name"], [req.body.burger_name], function(result){
+    console.log(result);
+    res.json(result);
+  })
+})
 
 
 module.exports = router;

@@ -1,10 +1,12 @@
-const connection = require("connection.js");
+const connection = require("../config/connection.js");
 
 function printQuestionMarks(num){
   var marks = [];
   for (i=0; i<num; i++){
     marks.push("?")
   }
+  console.log('marks: ', marks);
+  
   return marks.toString();
 }
 
@@ -12,7 +14,7 @@ function objToSql(obj){
   const arr = [];
   for(var key in obj){
     var value = obj[key];
-    if(Object.hasOwnProperty(ob, key)){
+    if(Object.hasOwnProperty.call(obj, key)){
       if(typeof(value)=== String && value.indexof(" ")){
         value = `"${value}"`;
       }
@@ -41,22 +43,16 @@ const orm = {
     });
   },
   updateOne: function(table, objColVals, condition, cb){
-    const query = `UPDATE ${table} SET ${objToSql(objColVals)} WHERE ${condition};`
+    const colVals = objToSql(objColVals);
+
+    const query = `UPDATE ${table} SET ${colVals} WHERE ${condition};`
     connection.query(query, function(err, res){
       if (err) throw err;
 
       cb(res);
     });
 
-  },
-  delete: function(table, condition, cb){
-    const query = `DELETE FROM ${table} WHERE ${condition};`
-    connection.query(query, function(err, res){
-      if (err) throw err;
-
-      cb(res);
-    });
-  },
+  }
 }
 
 module.exports = orm;
