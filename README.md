@@ -19,14 +19,13 @@ HTTP, CSS, JavaScript, Bootstrap, jQuery, Ajax, ES6, Node.js, express, express h
 ## Table of Contents
 * [Example](#example)
   
-  
-  * [Installation](#installation)
-  
-  * [License](#license)
-  
-  * [Tests](#tests)
-  
-  * [Questions](#questions)
+* [Installation](#installation)
+
+* [License](#license)
+
+* [Tests](#tests)
+
+* [Questions](#questions)
     
 
 ## Example
