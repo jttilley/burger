@@ -29,7 +29,7 @@ HTTP, CSS, JavaScript, Bootstrap, jQuery, Ajax, ES6, Node.js, express, express h
     
 
 ## Example
-![example](public/assets/screenshot.png)
+![example](public/assets/burger.png)
 
 ## Installation
 To install the necessary denpendencies, run the following command:
